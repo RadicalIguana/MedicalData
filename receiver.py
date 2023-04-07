@@ -8,6 +8,7 @@ serialPort = serial.Serial(
 
 serialString = ''
 serialArray = []
+serialPort.write(b'ab')
 
 while True:
     if serialPort.in_waiting > 0:
