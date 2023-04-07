@@ -1,3 +1,5 @@
-a = 'qwe\r'
-for i in a:
-    print(i)
+a = 'qw\r\n'
+
+a = a.replace('\r\n', '')
+
+print(a)

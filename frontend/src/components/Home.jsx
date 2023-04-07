@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Box, Typography } from '@mui/material'
-import { Routes, Route } from 'react-router-dom'
-import Accustrip from './Accustrip'
+
 
 function Home() {
+  const [data, setData] = useState({})
+
+  const getData = async () => {
+    const response = await fetch(`${ADDRESS}/`)
+    const res = await response.json()
+    debugger
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <Box>
         <Typography>
-            Home page
+
         </Typography>
     </Box>
 

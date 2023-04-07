@@ -1,31 +1,4 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-# from receiver import accustripData
-
-import serial
-
-app = FastAPI()
-
-origins = ["*"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-@app.get('/')
-async def read_root():
-    return {'message': 'some text'}
-
-@app.get('/accustrip')
-async def read_accustrip():
-    data = accustripData()
-    print(data)
-    return {'data': data}
+import serial 
 
 def accustripData():
     serialPort = serial.Serial(
@@ -41,8 +14,10 @@ def accustripData():
         baudrate=19200, 
         parity=serial.PARITY_NONE, bytesize=8, timeout=2, stopbits=serial.STOPBITS_ONE, 
     )
+
     serialString = ''
     serialArray = []
+
     while True:
         if serialPort.in_waiting > 0:
             serialString = serialPort.readline()
@@ -57,3 +32,4 @@ def accustripData():
                 print(serialArray)  
                 return serialArray    
             
+accustripData()
