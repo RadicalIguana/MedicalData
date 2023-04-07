@@ -8,13 +8,17 @@ serialPort = serial.Serial(
 
 serialString = ''
 serialArray = []
-serialPort.write(b'ab')
 
 while True:
     if serialPort.in_waiting > 0:
         serialString = serialPort.readline()
-        serialArray.append(serialString.decode('utf-8', 'ignore'))
-        print(serialString.decode('utf-8', 'ignore'))
+        # serialArray.append(serialString.decode('utf-8', 'ignore'))
+        
+        str = serialString.decode('utf-8', 'ignore')
+        str.replace('\r\n', '')
+        print(str)
+        serialArray.append(str)
+        
         if serialPort.in_waiting == 0:
             print(serialArray)  
             serialArray = []          
