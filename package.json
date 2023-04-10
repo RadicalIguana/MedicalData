@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.11.16",
+    "react-p5-wrapper": "^4.1.1",
+    "react-router-dom": "^6.10.0"
+  }
+}
