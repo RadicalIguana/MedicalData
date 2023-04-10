@@ -13,7 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-import { Bloodtype, LocalHospital, Home } from '@mui/icons-material'
+import { Bloodtype, LocalHospital, Home, HeartBroken, Cancel } from '@mui/icons-material'
 
 import { Link  } from 'react-router-dom'
 
@@ -57,9 +57,18 @@ function Sidebar() {
                 </ListItem>
 
                 <ListItem disablePadding>
+                  <ListItemButton component={Link} to='/cardio'>
+                    <ListItemIcon>
+                      <HeartBroken />
+                    </ListItemIcon>
+                    <ListItemText primary='Cardio' />
+                  </ListItemButton>
+                </ListItem>
+
+                <ListItem disablePadding>
                   <ListItemButton component={Link} to='/todo'>
                     <ListItemIcon>
-                      <LocalHospital />
+                      <Cancel />
                     </ListItemIcon>
                     <ListItemText primary='Page for another medical device' />
                   </ListItemButton>

@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
+
 # from receiver import accustripData
 
 import serial
@@ -24,8 +27,8 @@ async def read_root():
 @app.get('/accustrip')
 async def read_accustrip():
     data = accustripData()
-    print(data)
-    return {'data': data}
+    # data = {'data': data}
+    return data 
 
 def accustripData():
     serialPort = serial.Serial(
@@ -48,12 +51,14 @@ def accustripData():
             serialString = serialPort.readline()
             str = serialString.decode('utf-8', 'ignore')
             txt = str.replace('\r\n', '')
-            print(txt)
             serialArray.append(txt)
             
-            if serialPort.in_waiting == 0:
-                serialArray.pop(0)
-                serialArray.pop(-1)
-                print(serialArray)  
-                return serialArray    
-            
+            if len(serialArray) == 21:
+                unnecessary_values = [serialArray[0], serialArray[1], serialArray[2], serialArray[5], serialArray[7], serialArray[8], serialArray[19], serialArray[20]]
+                for i in unnecessary_values:
+                    serialArray.remove(i)
+                data = dict()
+                
+                for i in range(len(serialArray)):
+                    data[i] = serialArray[i]
+                return serialArray       

@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react'
 
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Button } from '@mui/material'
 
 function Accustrip() {
   const [data, setData] = useState([])
+  const [buttonText, setButtonText] = useState('Получить анализы')
 
   const getData = async () => {
-    const response = await fetch(`http://localhost:8000/accustrip`)
+    setButtonText('Получение...')
+    const response = await fetch(`http://localhost:8000/accustrip`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
     const res = await response.json()
-    console.log(res.data);
-    setData(res.data)
+    setData(res)
+    setButtonText('Получить анализы')
   }
-
-  useEffect(() => {
-    getData()
-  }, [])
 
   return (
     <Box>
+        <Button variant='contained' onClick={ev => getData()}>{buttonText}</Button>
         <Typography>
             {
-              data
+              data.map((d) => (
+                <p>{d}</p>
+              ))
             }
         </Typography>
     </Box>

@@ -4,6 +4,7 @@ import Accustrip from './components/Accustrip'
 import NotFound from './components/NotFound'
 import MainLayout from './layouts/MainLayout'
 import Todo from './components/Todo'
+import Cardio from './components/Cardio'
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: '/accustrip',
                 element: <Accustrip/>
+            },
+            {
+                path: '/cardio',
+                element: <Cardio/>
             },
             {
                 path: '/todo',
