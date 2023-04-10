@@ -46,9 +46,10 @@ def accustripData():
     while True:
         if serialPort.in_waiting > 0:
             serialString = serialPort.readline()
+            print(type(serialString))
             str = serialString.decode('utf-8', 'ignore')
             txt = str.replace('\r\n', '')
-            print(txt)
+            print(txt)  
             serialArray.append(txt)
             
             if serialPort.in_waiting == 0:
