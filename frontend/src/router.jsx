@@ -1,10 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom'
+import MainLayout from './layouts/MainLayout'
+import NotFound from './components/NotFound'
 import Home from './components/Home'
 import Accustrip from './components/Accustrip'
-import NotFound from './components/NotFound'
-import MainLayout from './layouts/MainLayout'
-import Todo from './components/Todo'
 import Cardio from './components/Cardio'
+import Todo from './components/Todo'
+import Game from './components/Game'
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
             {
                 path: '/todo',
                 element: <Todo/>
-            }
+            },
+            {
+                path: '/game',
+                element: <Game/>
+            },
         ]
     },
     {
