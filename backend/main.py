@@ -69,8 +69,9 @@ def accustripData():
                     data[i] = serialArray[i]
                 return serialArray  
             
+@app.get('/carrdiochek')
 def read_cardiochek():
-    pass
+    return {'msg': 'text'}
 
 def cardiochekData():
     pass
