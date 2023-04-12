@@ -3,17 +3,15 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
-import { Bloodtype, LocalHospital, Home, HeartBroken, Cancel } from '@mui/icons-material'
+import { Bloodtype, Home, Cancel, VideogameAsset, HeartBroken } from '@mui/icons-material'
 
 import { Link  } from 'react-router-dom'
 
@@ -57,11 +55,11 @@ function Sidebar() {
                 </ListItem>
 
                 <ListItem disablePadding>
-                  <ListItemButton component={Link} to='/cardio'>
+                  <ListItemButton component={Link} to='/cardiochek'>
                     <ListItemIcon>
                       <HeartBroken />
                     </ListItemIcon>
-                    <ListItemText primary='Cardio' />
+                    <ListItemText primary='CardioChek' />
                   </ListItemButton>
                 </ListItem>
 
@@ -71,6 +69,15 @@ function Sidebar() {
                       <Cancel />
                     </ListItemIcon>
                     <ListItemText primary='Page for another medical device' />
+                  </ListItemButton>
+                </ListItem>
+
+                <ListItem disablePadding>
+                  <ListItemButton component={Link} to='/game'>
+                    <ListItemIcon>
+                      <VideogameAsset />
+                    </ListItemIcon>
+                    <ListItemText primary='Some game' />
                   </ListItemButton>
                 </ListItem>
             </List>
